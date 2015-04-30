@@ -1,6 +1,6 @@
 h1. Elasticsearch
 
-h2. Nishaanth Reddy Travis Experimentation No 2
+h2. Nishaanth Reddy Travis Experimentation No 3 with Coveralls
 
 h2. A Distributed RESTful Search Engine
 
