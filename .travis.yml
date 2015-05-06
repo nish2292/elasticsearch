@@ -12,17 +12,5 @@ env:
   - ES_TEST_LOCAL=true
   - ES_TEST_LOCAL=false
 
-deploy:
-  provider: releases
-  api_key:
-    - secure: gOLy2sIGeGp5uT1wz4ph37isrWYaADbOCmCnXND6mtP7QK9p6WErbk7RsjfLSPLuajICQhuFDPvyukEDmsSmSjinVqzpYIe8DVgKsPf68LLK4fRcuUZMzrBh9ByNKbqX2KSDNBocRZkPjmKdsQ8iN+6Pu1F8JrI5B3h20WNiGdI=
-  file:
-    - "tacoco/bin/jacoco.exec"
-  skip_cleanup: true
-  on:
-    tags: true
-    all_branches: true
-    repo: junghuk/apache_commons_text
-
 notifications:
   email: false
