@@ -2,6 +2,9 @@ language: java
 jdk:
   - openjdk7
 
+script:
+  - ./tacoco.sh
+
 env:
   - ES_TEST_LOCAL=true
   - ES_TEST_LOCAL=false
