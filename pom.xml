@@ -675,9 +675,6 @@
                                     </fileset>
                                     <map from="${basedir}${file.separator}" to="* "/>
                                 </pathconvert>
-                                <fail if="validate.patternsFound">The following files contain tabs or
-                                    nocommits:${line.separator}${validate.patternsFound}
-                                </fail>
                             </target>
                         </configuration>
                     </execution>
