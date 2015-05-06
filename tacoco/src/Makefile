@@ -4,13 +4,20 @@ BUILD_DIR:=../bin
 LIB_DIR:=../lib
 SRC_DIR:=.
 
-TEST_SUITE_NAME:=ClassATest
-TEST_SUITE:=$(BUILD_DIR)/$(TEST_SUITE_NAME).class
+
+TEST_DIR:=../../target/test-classes
+TARGET_DIR:=../../target/classes
+
+#TEST_SUITE_NAME:=ClassATest
+TEST_SUITE_NAME:=org.elasticsearch.common.lucene.search.MultiPhrasePrefixQueryTests
+
+#TEST_SUITE:=$(BUILD_DIR)/$(TEST_SUITE_NAME).class
+#TEST_SUITE:=$(TEST_DIR)/$(TEST_SUITE_NAME).class
 CLASS_FILES:= $(BUILD_DIR)/ExecDump.class $(BUILD_DIR)/PerTestCaseCoverageRunner.class $(BUILD_DIR)/JacocoListener.class $(BUILD_DIR)/ExecAnalyze.class $(TEST_SUITE)  $(BUILD_DIR)/PerJUnitTestCaseVisitor.class
 
 JUNIT:=$(LIB_DIR)/junit-4.11.jar
 JACOCO_AGENT:=$(LIB_DIR)/jacocoagent.jar
-JACOCO_CORE:=$(LIB_DIR)/org.jacoco.core-0.6.2.20130126-2101.jar
+JACOCO_CORE:=$(LIB_DIR)/org.jacoco.core.jar
 HAMCREST:=$(LIB_DIR)/hamcrest-core-1.3.jar
 ASM:=$(LIB_DIR)/asm-all-4.1.jar
 
@@ -30,7 +37,7 @@ $(BUILD_DIR):
 
 # Rule for running the PerTestCaseCoverageRunner program to generate the jacoco.exec file
 run: $(BUILD_DIR) $(CLASS_FILES)
-	$(JAVA) -javaagent:$(JAVAAGENT)=$(JAVAAGENT_OPTIONS) -cp $(BUILD_DIR):$(JUNIT):$(HAMCREST):$(JACOCO_AGENT) PerTestCaseCoverageRunner $(TEST_SUITE_NAME)
+	$(JAVA) -javaagent:$(JAVAAGENT)=$(JAVAAGENT_OPTIONS) -cp $(BUILD_DIR):$(JUNIT):$(HAMCREST):$(JACOCO_AGENT):$(TEST_DIR):$(TARGET_DIR) PerTestCaseCoverageRunner $(TEST_SUITE_NAME)
 
 # Rule for running the ExecDump program with an expected jacoco.exec file in the build directory. Runs the program to generate the jacoco.exec file if it does not exist.
 dump: $(BUILD_DIR) $(CLASS_FILES) $(BUILD_DIR)/jacoco.exec

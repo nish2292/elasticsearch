@@ -52,5 +52,3 @@ clean:
 
 analyze: $(BUILD_DIR) $(CLASS_FILES)
 	$(JAVA) -cp $(BUILD_DIR):$(JACOCO_CORE):$(ASM) ExecAnalyze
-Status API Training Shop Blog About
-© 2015 GitHub, Inc. Terms Privacy Security Contact
